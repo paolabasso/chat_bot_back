@@ -1,4 +1,5 @@
 const contactStep = require('./contactStep');
+const helpStep = require('./insecurityStep');
 
 const hurtStep = {
   question: 'Mana,\nvocê está machucada fisicamente ?',
@@ -6,12 +7,12 @@ const hurtStep = {
     {
       id: 1,
       message: 'Sim.',
-      nextStep: contactStep
+      nextStep: helpStep
     },
     {
       id: 2,
       message: 'Não, mas não me sinto segura.',
-      nextStep: contactStep
+      nextStep: helpStep
     }
   ],
   error: 'Opção inválida.',
