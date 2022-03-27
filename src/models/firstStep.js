@@ -1,7 +1,7 @@
 const hurtStep = require('./hurtStep');
 
 const firstStep = {
-  question: 'Olá Mana, Tudo bem?\nEu sou a Guardiã, me diz se você está segura',
+  question: 'Olá Mana, Tudo bem? Eu sou a Guardiã, me diz se você está segura',
   options: [
     {
       id: 1,

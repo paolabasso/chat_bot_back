@@ -16,16 +16,15 @@ const sessionFind = sessionid => {
 
 const startSession = response => {
   sessionid = uuid.v4();
-  console.log(sessionid);
+
   sessions.push({ id: sessionid, step: firstStep });
 
   const func = firstStep.actions;
   func('tudocerto');
-  console.log(func);
 
   response.set('sessionid', sessionid);
 
-  return response.json(firstStep);
+  return response.json({ step: firstStep, sessionId: sessionid });
 };
 
 routes.post('/', async (request, response) => {
@@ -33,11 +32,7 @@ routes.post('/', async (request, response) => {
   const sessionFinded = sessionFind(sessionid);
 
   if (sessionFinded) {
-    response.set('sessionid', sessionid);
-
     const { message } = request.body;
-
-    console.log(sessionFinded.step);
 
     if (!sessionFinded.step) {
       return startSession(response);
@@ -45,7 +40,6 @@ routes.post('/', async (request, response) => {
 
     const func = sessionFinded.step.actions;
     func('tudocerto 2');
-    console.log(func);
 
     if (!sessionFinded.step.options) {
       sessionFinded.step = null;
@@ -58,9 +52,11 @@ routes.post('/', async (request, response) => {
 
     if (option) {
       sessionFinded.step = option.nextStep;
-      return response.json(option.nextStep);
+      return response.json({ step: option.nextStep, sessionId: sessionid });
     } else {
-      return response.status(400).json(sessionFinded.step);
+      return response
+        .status(400)
+        .json({ step: sessionFinded.step, sessionId: sessionid });
     }
   } else {
     return startSession(response);
