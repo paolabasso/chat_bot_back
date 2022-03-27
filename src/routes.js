@@ -24,7 +24,7 @@ const startSession = response => {
 
   response.set('sessionid', sessionid);
 
-  return response.json({ step: firstStep, sessionId: sessionid });
+  return response.json({ sessionId: sessionid, step: firstStep });
 };
 
 routes.post('/', async (request, response) => {
@@ -39,9 +39,10 @@ routes.post('/', async (request, response) => {
     }
 
     const func = sessionFinded.step.actions;
-    func('tudocerto 2');
+    func(message);
 
     if (!sessionFinded.step.options) {
+      console.log('estou entrando');
       sessionFinded.step = null;
       return response.status(204).send();
     }
@@ -52,11 +53,11 @@ routes.post('/', async (request, response) => {
 
     if (option) {
       sessionFinded.step = option.nextStep;
-      return response.json({ step: option.nextStep, sessionId: sessionid });
+      return response.json({ sessionId: sessionid, step: option.nextStep });
     } else {
       return response
         .status(400)
-        .json({ step: sessionFinded.step, sessionId: sessionid });
+        .json({ sessionId: sessionid, step: sessionFinded.step });
     }
   } else {
     return startSession(response);
