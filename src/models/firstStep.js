@@ -1,22 +1,23 @@
 const hurtStep = require('./hurtStep');
+const orientationStep = require('./orientationStep');
 
 const firstStep = {
-  question: 'Olá Mana, Tudo bem? Eu sou a Guardiã, me diz se você está segura',
+  question: 'Olá Mana, Tudo bem? Eu sou a Guardiã, me diz se você está segura.',
   options: [
     {
       id: 1,
-      message: 'Não, preciso de ajuda.',
+      message: '1 - Não, preciso de ajuda.',
       nextStep: hurtStep
     },
     {
       id: 2,
-      message: 'Ainda estou mas preciso de ajuda.',
+      message: '2 - Ainda estou mas preciso de ajuda.',
       nextStep: hurtStep
     },
     {
       id: 3,
-      message: 'Estou segura, mas preciso de orientação.',
-      nextStep: hurtStep
+      message: '3 - Estou segura, mas preciso de orientação.',
+      nextStep: orientationStep
     }
   ],
   error: 'Opção inválida.',

@@ -6,11 +6,11 @@ const complaintStep = {
   options: [
     {
       id: 1,
-      message: 'Canal de psicoemocional da Empresa X'
+      message: '1 - Canal de psicoemocional da Empresa X'
     },
     {
       id: 2,
-      message: 'O canal de apoio da Safe Sisters'
+      message: '2 - O canal de apoio da Safe Sisters'
     }
   ],
   error: 'Opção inválida.',

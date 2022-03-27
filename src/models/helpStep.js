@@ -7,12 +7,12 @@ const helpStep = {
   options: [
     {
       id: 1,
-      message: 'Sim, consigo pedir ajuda.',
+      message: '1 - Sim, consigo pedir ajuda.',
       nextStep: channelStep
     },
     {
       id: 2,
-      message: 'Não, ainda estou em situação crítica.',
+      message: '2 - Não, ainda estou em situação crítica.',
       nextStep: contactStep
     }
   ],

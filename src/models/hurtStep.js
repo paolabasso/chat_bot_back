@@ -1,17 +1,17 @@
 const contactStep = require('./contactStep');
-const helpStep = require('./insecurityStep');
+const helpStep = require('./helpStep');
 
 const hurtStep = {
-  question: 'Mana,\nvocê está machucada fisicamente ?',
+  question: 'Mana, você está machucada fisicamente ?',
   options: [
     {
       id: 1,
-      message: 'Sim.',
+      message: '1 - Sim.',
       nextStep: helpStep
     },
     {
       id: 2,
-      message: 'Não, mas não me sinto segura.',
+      message: '2 - Não, mas não me sinto segura.',
       nextStep: helpStep
     }
   ],
