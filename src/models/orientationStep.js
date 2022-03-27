@@ -1,4 +1,4 @@
-const finalStep = require('./FinalStep');
+const finalStep = require('./finalStep');
 
 const orientationStep = {
   question:
